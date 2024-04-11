@@ -58,6 +58,9 @@ _Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormati
 
 Passing in a parameter to the Lifecycle. "Use !Sub |" and the put the parameter in "${}"
 
+### YAML
+
+<pre>
   TestRunnerImageRepository:
     Type: AWS::ECR::Repository
     Properties:
@@ -83,3 +86,4 @@ Passing in a parameter to the Lifecycle. "Use !Sub |" and the put the parameter 
                 }
               ]
             }
+</pre>
