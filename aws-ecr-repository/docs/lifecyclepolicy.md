@@ -60,12 +60,12 @@ Passing in a parameter to the LifecyclePolicyText.
 Use "<code>!Sub |</code>" and the put the parameter in "<code>${}</code>"
 
 ### YAML
-    RetainedImageCount:
-      Description: >
+RetainedImageCount:
+    Description: >
         The number of ECR Images that should be retained in an ECR Repository.
         Default is 999 number of images.
-      Type: Number
-      Default: 999
+    Type: Number
+    Default: 999
  
 <pre>
   TestRunnerImageRepository:
@@ -81,11 +81,11 @@ Use "<code>!Sub |</code>" and the put the parameter in "<code>${}</code>"
               "rules": [
                 {
                   "rulePriority": 1,
-                  "description": "Rule 1",
+                  "description": "Rule 1 - retain the last ${RetainedImageCount} of images",
                   "selection": {
                       "tagStatus": "any",
                       "countType": "imageCountMoreThan",
-                      "countNumber": ${ECRImageRetentionNr}
+                      "countNumber": ${RetainedImageCount}
                   },
                   "action": {
                     "type": "expire"
