@@ -54,3 +54,32 @@ _Pattern_: <code>^[0-9]{12}$</code>
 
 _Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
+## Examples
+
+Passing in a parameter to the Lifecycle. "Use !Sub |" and the put the parameter in "${}"
+
+  TestRunnerImageRepository:
+    Type: AWS::ECR::Repository
+    Properties:
+      ImageScanningConfiguration:
+        ScanOnPush: true
+      EncryptionConfiguration:
+        EncryptionType: "KMS"
+      LifecyclePolicy:
+        LifecyclePolicyText: !Sub |
+          {
+              "rules": [
+                {
+                  "rulePriority": 1,
+                  "description": "Rule 1",
+                  "selection": {
+                      "tagStatus": "any",
+                      "countType": "imageCountMoreThan",
+                      "countNumber": ${ECRImageRetentionNr}
+                  },
+                  "action": {
+                    "type": "expire"
+                  }
+                }
+              ]
+            }
