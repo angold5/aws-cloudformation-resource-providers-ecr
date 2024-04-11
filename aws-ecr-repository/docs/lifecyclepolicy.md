@@ -57,7 +57,7 @@ _Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormati
 ## Examples
 
 Passing in a parameter to the LifecyclePolicyText. 
-"Use !Sub |" and the put the parameter in "${}"
+Use "<code>!Sub |</code>" and the put the parameter in "<code>${}</code>"
 
 ### YAML
     RetainedImageCount:
