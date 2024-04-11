@@ -59,7 +59,13 @@ _Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormati
 Passing in a parameter to the Lifecycle. "Use !Sub |" and the put the parameter in "${}"
 
 ### YAML
-
+    RetainedImageCount:
+      Description: >
+        The number of ECR Images that should be retained in an ECR Repository.
+        Default is 999 number of images.
+      Type: Number
+      Default: 999
+ 
 <pre>
   TestRunnerImageRepository:
     Type: AWS::ECR::Repository
