@@ -60,13 +60,15 @@ Passing in a parameter to the LifecyclePolicyText.
 Use "<code>!Sub |</code>" and the put the parameter in "<code>${}</code>"
 
 ### YAML
+<pre>
 RetainedImageCount:
     Description: >
         The number of ECR Images that should be retained in an ECR Repository.
         Default is 999 number of images.
     Type: Number
     Default: 999
- 
+</pre>
+
 <pre>
   TestRunnerImageRepository:
     Type: AWS::ECR::Repository
